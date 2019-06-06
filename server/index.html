@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+    <head>
+        <meta charset="UTF-8">
+        <title>websocket</title>
+    </head>
+    <body>
+        <input type="text" id="pl" />
+        <input type="button" value="发送" id="submit" />
+        <input type="button" value="关闭" id="close" />
+
+        <script src="../node_modules/socket.io-client/dist/socket.io.js"></script>
+        <script>
+            var socket = io('http://localhost:3000');
+            socket.emit('message', { a:1 })
+            socket.on('connect', function(){});
+            socket.on('event', function(data){});
+            socket.on('disconnect', function(){});
+            socket.on('message', function(data){
+                console.log(data);
+            });
+        </script>
+    </body>
+
+</html>
