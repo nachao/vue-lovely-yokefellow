@@ -1,39 +1,27 @@
-
 let socket;
-let getUid = () => null;
+let tartet = 'LY';
 
-let actions = [];
-let events = [];
+export function sendAction (action) {
+    socket.emit(tartet, action)
+}
 
-function sendAction (action, uid) {
-    if (typeof action === 'number') {
-        socket.emit('lovely-yokefellow', { action, uid })
-    }
+export function addNum (a, b) {
+    return a + b
 }
 
 function bindDirectiveClick (el, binding) {
     if (binding.value) {
-        el.addEventListener('click', () => {
-            sendAction(binding.value, getUid())
-        })
+        el.addEventListener('click', () => sendAction(binding.value))
     }
-}
-
-function recordEvent () {
-    actions.find()
 }
 
 function init (Vue) {
     Vue.directive('ly-click', { bind: bindDirectiveClick })
-    Vue.prototype.$lovelyYokefellow = (data) => sendAction(data, getUid())
+    Vue.prototype.$lovelyYokefellow = (data) => sendAction(data)
 }
 
-export function ServerLovelyYokefellowHandler (actions, events) {
-    actions = actions
-    events = events
-}
-
-export function VueLovelyYokefellowPlugin (io) {
+export function VueLovelyYokefellowPlugin (io, tartet) {
+    tartet = tartet
     socket = io
     return init
 }

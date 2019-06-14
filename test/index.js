@@ -6,7 +6,7 @@ import io from 'socket.io-client';
 import { VueLovelyYokefellowPlugin } from '../src/index'
 
 
-Vue.use(VueLovelyYokefellowPlugin(io('ws://127.0.0.1:3000')), {
+Vue.use(VueLovelyYokefellowPlugin(io('ws://127.0.0.1:3002')), {
     // uid: () => app.user.id,
 })
 

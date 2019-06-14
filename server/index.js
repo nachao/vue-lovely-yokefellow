@@ -19,7 +19,6 @@ const io = new IO();
 io.attach(app);
 
 io.on('lovely-yokefellow', (ctx, data) => {
-  yoke
   console.log('client sent data to message endpoint: ', data);
 });
 

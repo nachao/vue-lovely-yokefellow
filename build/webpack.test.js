@@ -2,8 +2,6 @@ const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-console.log(111, path.join(__dirname, "../dist"))
-
 module.exports = {
     mode: 'development',
     entry: './test/index.js',
@@ -27,6 +25,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, "../test"),
         watchContentBase: true,
-        open: true
+        open: true,
+        port: 3001
     }
 }
