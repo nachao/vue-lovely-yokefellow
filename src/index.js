@@ -1,5 +1,5 @@
 let socket;
-let tartet = 'LY1';
+let tartet = 'LY';
 
 export function sendAction (action) {
     socket.emit(tartet, action)
